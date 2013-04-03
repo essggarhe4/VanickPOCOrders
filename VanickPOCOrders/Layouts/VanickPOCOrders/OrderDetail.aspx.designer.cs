@@ -10,7 +10,7 @@
 namespace VanickPOCOrders.Layouts.VanickPOCOrders {
     
     
-    public partial class Orders {
+    public partial class OrderDetail {
         
         /// <summary>
         /// pnlTransactionslogs control.
@@ -22,12 +22,21 @@ namespace VanickPOCOrders.Layouts.VanickPOCOrders {
         protected global::System.Web.UI.WebControls.Panel pnlTransactionslogs;
         
         /// <summary>
-        /// gvTransactionslogs control.
+        /// CalendaRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTransactionslogs;
+        protected global::System.Web.UI.WebControls.Repeater CalendaRepeater;
+        
+        /// <summary>
+        /// BTN_Save control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BTN_Save;
     }
 }

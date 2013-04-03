@@ -4,6 +4,7 @@ using Microsoft.SharePoint.WebControls;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web;
 
 namespace VanickPOCOrders.Layouts.VanickPOCOrders
 {
@@ -16,22 +17,30 @@ namespace VanickPOCOrders.Layouts.VanickPOCOrders
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //CreateOrders();
+            CreateOrders();
         }
 
+        private void test()
+        {
+            //gvTransactionslogs
+        }
+
+
+        /*
         protected sealed override void Render(HtmlTextWriter writer)
         {
             //GenerateColumns();
             //grid.DataBind();
-            OrdersGridsp.DataSource = SelectData();
-            OrdersGridsp.DataBind();
+            //OrdersGridsp.DataSource = SelectData();
+            //OrdersGridsp.DataBind();
             base.Render(writer);
         }
 
         public override void VerifyRenderingInServerForm(Control control)
         {
-            /* Verifies that the control is rendered */
+            
         }
+
         protected sealed override void CreateChildControls()
         {
             const string GRIDID = "grid";
@@ -118,6 +127,8 @@ namespace VanickPOCOrders.Layouts.VanickPOCOrders
             grid.Columns.Add(column);
         }
 
+        */
+
         private void CreateOrders()
         {
             try
@@ -127,27 +138,63 @@ namespace VanickPOCOrders.Layouts.VanickPOCOrders
                     using(SPWeb web = site.OpenWeb())
                     {
                         table = new DataTable();
-                        table.Columns.Add("Order ID", typeof(Int32));
-                        table.Columns.Add("Order", typeof(string));
-                        table.Columns.Add("Order Status", typeof(string));
+                        gvTransactionslogs.Columns.Clear();
+                        table.Columns.Add(new DataColumn("Order ID", typeof(string)));
+                        BoundField OrderId = new BoundField();
+                        OrderId.SortExpression = "Order ID";
+                        OrderId.HeaderText = "Order ID";
+                        OrderId.DataField = "Order ID";
+                        //OrderId.HtmlEncode = false;
+                        gvTransactionslogs.Columns.Add(OrderId);
+
+                        table.Columns.Add(new DataColumn("Order", typeof(string)));
+                        BoundField Order = new BoundField();
+                        Order.SortExpression = "Order";
+                        Order.HeaderText = "Order";
+                        Order.DataField = "Order";
+                        //Order.HtmlEncode = false;
+                        gvTransactionslogs.Columns.Add(Order);
+
+                        table.Columns.Add(new DataColumn("Order Status", typeof(string)));
+                        BoundField OrderStatus = new BoundField();
+                        OrderStatus.SortExpression = "Order Status";
+                        OrderStatus.HeaderText = "Order Status";
+                        OrderStatus.DataField = "Order Status";
+                        //OrderStatus.HtmlEncode = false;
+                        gvTransactionslogs.Columns.Add(OrderStatus);
+
+                        table.Columns.Add(new DataColumn("Detail", typeof(string)));
+                        BoundField Detail = new BoundField();
+                        Detail.SortExpression = "Detail";
+                        Detail.HeaderText = "Detail";
+                        Detail.DataField = "Detail";
+                        Detail.HtmlEncode = false;
+                        gvTransactionslogs.Columns.Add(Detail);
+
+                       
 
                         SPList OrderList = web.Lists["Orders"];
                         SPQuery query = new SPQuery();
                         SPListItemCollection coll = OrderList.GetItems(query);
-
+                        DataRow dr;
                         foreach (SPItem gt in coll)
-                        {
-                            DataRow dr;
+                        {                            
                             dr = table.NewRow();
-                            dr["Order ID"] = gt.ID;
-                            dr["Order"] = gt["Title"].ToString();
+                            dr[0] = gt.ID;
+                            dr[1] = gt["Title"].ToString();
                             if(gt["Order Status"]!= null)
-                                dr["Order Status"] = gt["Order Status"].ToString();
+                                dr[2] = gt["Order Status"].ToString();
+                            dr[3] = "<a href='"+"OrderDetail.aspx?orderid="+ gt.ID.ToString() + "' >"+"Order Detail"+"</a>";
                             table.Rows.Add(dr);
                         }
 
-                        //OrdersGridf.DataSource = table;
-                        //OrdersGridf.DataBind();
+                        DataView dv = new DataView(table);
+
+                        gvTransactionslogs.DataSource = dv;
+                        gvTransactionslogs.DataBind();
+
+                        //SPGridView.DataSource = table;
+                        //SPGridView.DataBind();
 
                     }
                 }

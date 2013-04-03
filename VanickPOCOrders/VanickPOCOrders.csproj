@@ -53,6 +53,20 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlTemplates\VanickPOCOrders\UCOrderDetail.ascx.cs">
+      <DependentUpon>UCOrderDetail.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlTemplates\VanickPOCOrders\UCOrderDetail.ascx.designer.cs">
+      <DependentUpon>UCOrderDetail.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\VanickPOCOrders\OrderDetail.aspx.cs">
+      <DependentUpon>OrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\VanickPOCOrders\OrderDetail.aspx.designer.cs">
+      <DependentUpon>OrderDetail.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layouts\VanickPOCOrders\Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -60,9 +74,13 @@
     <Compile Include="Layouts\VanickPOCOrders\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx.cs</DependentUpon>
     </Compile>
+    <Compile Include="objOrderDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ControlTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2cb8613b-a41d-4512-bf78-a1f58f61c570}</SharePointProjectItemId>
+    </None>
     <None Include="key.snk" />
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{dfbafb1d-1c6d-4fa1-aa6f-ae1cd2299692}</SharePointProjectItemId>
@@ -78,6 +96,12 @@
     <Folder Include="Features\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ControlTemplates\VanickPOCOrders\UCOrderDetail.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Layouts\VanickPOCOrders\OrderDetail.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="Layouts\VanickPOCOrders\Orders.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

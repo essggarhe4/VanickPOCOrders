@@ -7,27 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VanickPOCOrders.Layouts.VanickPOCOrders {
+namespace VanickPOCOrders.ControlTemplates.VanickPOCOrders {
     
     
-    public partial class Orders {
+    public partial class UCOrderDetail {
         
         /// <summary>
-        /// pnlTransactionslogs control.
+        /// Detail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlTransactionslogs;
-        
-        /// <summary>
-        /// gvTransactionslogs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTransactionslogs;
+        protected global::System.Web.UI.WebControls.TextBox Detail;
     }
 }

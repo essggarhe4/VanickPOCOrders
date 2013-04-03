@@ -5,7 +5,7 @@
 <%@ Register Tagprefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="VanickPOCOrders.Layouts.VanickPOCOrders.Orders" DynamicMasterPageFile="~masterurl/default.master" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderDetail.aspx.cs" Inherits="VanickPOCOrders.Layouts.VanickPOCOrders.OrderDetail" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
 
@@ -14,22 +14,28 @@
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
 
 <asp:Panel ID="pnlTransactionslogs" runat="server">
-    <asp:GridView ID="gvTransactionslogs" runat="server" AutoGenerateColumns="False" CellPadding="4"
-    CellSpacing="1"
-    GridLines="None"
-    CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+    
+    <asp:Repeater ID="CalendaRepeater" runat="server">
+            <ItemTemplate>
+                <div>
+                    <div id="OARDERiddIV" runat="server" class="detailid"><%# Eval("ID") %></div>
+                    <asp:TextBox ID="OrdenDetailText" runat="server"></asp:TextBox>                    
+                </div>                                          
+            </ItemTemplate>
+        </asp:Repeater>  
+    <asp:Button ID="BTN_Save" OnClick="SaveBtn_Click" runat="server" Text="Save" />
 
 
-    </asp:GridView>    
 </asp:Panel>
+
 
 
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">
-Orders
+Order Detal
 </asp:Content>
 
 <asp:Content ID="PageTitleInTitleArea" ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server" >
-Orders
+Order Detail
 </asp:Content>

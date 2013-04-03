@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanickPOCOrders", "VanickPOCOrders\VanickPOCOrders.csproj", "{FD6D4713-797E-4728-813B-A9306EC08257}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lists", "Lists", "{CE8C1A4C-0C31-4FE0-AC6F-61C9687DC93B}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\..\Vanick\Demo Order\Lists\DemoOrder.stp = ..\..\..\..\..\..\Vanick\Demo Order\Lists\DemoOrder.stp
+		..\..\..\..\..\..\Vanick\Demo Order\Lists\DemoOrderDetail.stp = ..\..\..\..\..\..\Vanick\Demo Order\Lists\DemoOrderDetail.stp
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

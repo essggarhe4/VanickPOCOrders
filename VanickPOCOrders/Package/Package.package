@@ -2,5 +2,6 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="ba208a68-628a-4962-bd38-654723772ec2" solutionId="ba208a68-628a-4962-bd38-654723772ec2" resetWebServer="false" name="VanickPOCOrders" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <projectItems>
     <projectItemReference itemId="dfbafb1d-1c6d-4fa1-aa6f-ae1cd2299692" />
+    <projectItemReference itemId="2cb8613b-a41d-4512-bf78-a1f58f61c570" />
   </projectItems>
 </package>
